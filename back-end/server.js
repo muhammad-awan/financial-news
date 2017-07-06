@@ -7,7 +7,7 @@ const bodyParser = require('body-parser')
 server.use(bodyParser.json())
 server.use(articlesRouter)
 
-const port = 3000
+const port = 5000
 server.listen(port, () => {
   console.log(`listening on ${port}`)
 })
