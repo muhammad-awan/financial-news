@@ -7,12 +7,12 @@ export default function ArticleList({
   return(
     <div>
     {
-    items.map((item) => {
+    items.map((item) => (
       <Article
-      title = {item.title}
-      by = {item.by}
+        key={ item._id }
+        { ... item }
       />
-      })
+      ))
     }
     </div>
   )

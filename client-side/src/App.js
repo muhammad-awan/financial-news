@@ -4,32 +4,34 @@ import ArticleList from './components/ArticleList'
 
 class App extends Component {
   state = {
-    articles: null
+    articles: null,
+    error: null
   }
 
   render() {
-    const {articles} = this.state
-
+    const { error, articles } = this.state
     return (
-      <div className="App">
+      <main>
+      { !!error && <p>{error.message}</p>}
       {
         !!articles ? (
-          <ArticleList items = {articles}/>
+          <ArticleList items = { articles }/>
         ) : (
           'Loading articles...'
         )
       }
-      </div>
+      </main>
       );
   }
   
   componentDidMount(){
-    fetch('/api/articles')
-      .then( res => res.json())
-      .then( json => {
-        this.setState({
-          articles: json
-        })
+    fetch('/articles')
+      .then(res => res.json())
+      .then( articles => {
+        this.setState({ articles })
+      })
+      .catch( error => {
+        this.setState({ error })
     })
   } 
 }
