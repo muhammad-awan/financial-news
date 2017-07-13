@@ -1,5 +1,4 @@
-const mongoose = require('mongoose')
-require('./init')
+const mongoose = require('./init')
 
 const articleSchema = mongoose.Schema({
   title: {
