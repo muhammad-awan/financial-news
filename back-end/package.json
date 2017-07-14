@@ -1,15 +1,17 @@
 {
   "name": "final_proj",
   "private": true,
-  "version": "1.0.0",
+  "version": "0.27.5",
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
+    "jsonwebtoken": "^7.4.1",
     "mongoose": "^4.11.1",
     "nodemon": "^1.11.0",
     "passport": "^0.3.2",
+    "passport-jwt": "^2.2.1",
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^4.0.0",
     "react-router": "^4.1.1"
