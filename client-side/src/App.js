@@ -2,11 +2,25 @@ import React, { Component } from 'react';
 import './App.css';
 import ArticleList from './components/ArticleList'
 import CreateArticleForm from './components/CreateArticleForm'
+import SignInForm from './components/SignInForm'
+import * as authAPI from './api/auth'
+
 
 class App extends Component {
   state = {
     articles: null,
+    token: null,
     error: null
+  }
+
+  handleSignIn = ({ email, password }) => {
+    authAPI.signIn({ email, password })
+      .then( json => {
+        this.setState({ token: json.token })
+      })
+      .catch(error => {
+        this.setState({ error })
+      })
   }
 
   handleCreateArticle = ({ title, by }) => {
@@ -31,9 +45,16 @@ class App extends Component {
   }
 
   render() {
-    const { error, articles } = this.state
+    const { error, token, articles } = this.state
     return (
       <main>
+      {
+        !!token ? (
+          'Hiya'
+        ) : (
+        <SignInForm onSignIn={this.handleSignIn} />
+        )
+      }
       { !!error && <p>{error.message}</p>}
       <CreateArticleForm onCreate={ this.handleCreateArticle }/>
       {
