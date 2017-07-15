@@ -12,3 +12,13 @@ main{
 label {
   display: block;
 }
+
+nav a {
+  display: inline-block;
+  padding: 0.5rem 0.25rem;
+}
+
+nav a.active {
+  color: #442722;
+  font-weight: bold;
+}

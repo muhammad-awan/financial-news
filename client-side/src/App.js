@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import {
   BrowserRouter as Router,
   Route,
-  Link
+  Link,
+  Switch
 } from 'react-router-dom'
+import PrimaryNav from './components/PrimaryNav'
+import ArticlesPage from './pages/ArticlesPage'
+import SignInPage from './pages/SignInPage'
+import HomePage from './pages/HomePage'
 import './App.css';
-import ArticleList from './components/ArticleList'
-import CreateArticleForm from './components/CreateArticleForm'
-import SignInForm from './components/SignInForm'
 import * as authAPI from './api/auth'
 
 
@@ -54,46 +56,28 @@ class App extends Component {
     return (
       <Router>
         <main>
-          <nav>
-            <Link to='/'>Home</Link>
-            <Link to='/signin'>Sign In</Link>
-            <Link to='/articles'>Articles</Link>
-          </nav> 
-          <Route exact path='/' render={
-            () => (
-              <h1>Trending Articles</h1>
-            )
-          }/>
+          <PrimaryNav/>
+          <Switch>
+            <Route exact path='/' render={
+              () => (
+                <HomePage onCreate={ this.handleCreateArticle } error={ error } />
+              )
+            }/>
 
-          <Route exact path='/signin' render={
-            () => (
-              <div>
-                {
-                !!token ? (
-                'Hiya'
-                ) : (
-                <SignInForm onSignIn={this.handleSignIn} />
-                )
-                }
-              </div>
-            )
-          }/>
+            <Route path='/signin' render={
+              () => (
+                <SignInPage token={ token } onSignIn={ this.handleSignIn }/>
+              )
+            }/>
 
-          <Route exact path='/articles' render={
-            () => (
-              <div>
-                { !!error && <p>{error.message}</p>}
-                <CreateArticleForm onCreate={ this.handleCreateArticle }/>
-                {
-                !!articles ? (
-                <ArticleList items = { articles }/>
-                ) : (
-                'Loading articles...'
-                )
-                }
-              </div>
-            )
-          }/>
+            <Route path='/articles' render={
+              () => (
+                <ArticlesPage articles={ articles }/>
+              )
+            }/>
+
+            <Route render={ ({location}) => <p>'{location.pathname}' not found</p> }/>
+          </Switch>
         </main>
       </Router>
       );
