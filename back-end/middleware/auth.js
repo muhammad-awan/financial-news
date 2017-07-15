@@ -30,7 +30,7 @@ passport.use(
 passport.use(
   new passportJWT.Strategy(
     {
-      secretOrkey: jwtSecret,
+      secretOrKey: jwtSecret,
       jwtFromRequest: passportJWT.ExtractJwt.fromAuthHeader(),
       algorithms: [jwtAlgorithm]
     },
@@ -46,7 +46,7 @@ passport.use(
           }
         })
         .catch(error => {
-          done(new Error(`Issue fetching user with ID: ${userID}`))
+          done(new Error(`Issue fetching user with ID: ${userID}`, false))
         })
     }
   )
