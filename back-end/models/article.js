@@ -5,13 +5,7 @@ const articleSchema = mongoose.Schema({
     type: String,
     required: true
   },
-  by: {
-    type: String
-  },
-  body: {
-    type: String
-  }, 
-  origin_url: {
+  url: {
     type: String
   },
   create_date: {

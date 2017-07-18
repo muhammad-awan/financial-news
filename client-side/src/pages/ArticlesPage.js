@@ -12,7 +12,6 @@ const ArticlesPage = ({
       <Switch>
          <Route path='/articles/:id' render={
             ({ match }) => {
-                console.log('hi')
                 const id = match.params.id
                 const article = articles.find((article) => article._id === id)
                 if (!article) {

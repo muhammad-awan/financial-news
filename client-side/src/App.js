@@ -30,13 +30,13 @@ class App extends Component {
       })
   }
 
-  handleCreateArticle = ({ title, by }) => {
+  handleCreateArticle = ({ title, url }) => {
     fetch('/articles', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ title, by })
+      body: JSON.stringify({ title, url })
     })
       .then(res => res.json())
       .then(newArticle => {

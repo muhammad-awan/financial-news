@@ -5,8 +5,8 @@ function handleSubmit(event, onCreate){
   event.preventDefault()
   const form = event.target
   const title = form.elements['title'].value
-  const by = form.elements['by'].value
-  onCreate({ title, by })
+  const url = form.elements['url'].value
+  onCreate({ title, url })
 }
 
 export default function CreateArticleForm({
@@ -15,7 +15,7 @@ export default function CreateArticleForm({
   return(
     <form onSubmit={ (event) => handleSubmit(event, onCreate) }>
       <Field label='Title' name='title'/>
-      <Field label='By' name='by'/>
+      <Field label='Url' name='url'/>
       <button 
         type='submit' 
       >
