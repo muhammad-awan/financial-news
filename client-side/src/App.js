@@ -8,7 +8,6 @@ import {
 import PrimaryNav from './components/PrimaryNav'
 import ArticlesPage from './pages/ArticlesPage'
 import SignInPage from './pages/SignInPage'
-import HomePage from './pages/HomePage'
 import './App.css';
 import * as authAPI from './api/auth'
 
@@ -58,21 +57,15 @@ class App extends Component {
         <main>
           <PrimaryNav/>
           <Switch>
-            <Route exact path='/' render={
-              () => (
-                <HomePage onCreate={ this.handleCreateArticle } error={ error } />
-              )
-            }/>
-
             <Route path='/signin' render={
               () => (
                 <SignInPage token={ token } onSignIn={ this.handleSignIn }/>
               )
             }/>
 
-            <Route path='/articles' render={
+            <Route exact_path='/articles'  render={
               () => (
-                <ArticlesPage articles={ articles }/>
+                <ArticlesPage articles={ articles } onCreate={ this.handleCreateArticle } error={ error }/>
               )
             }/>
 

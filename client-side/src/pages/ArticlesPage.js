@@ -2,9 +2,12 @@ import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 import ArticleList from '../components/ArticleList'
 import Article from '../components/Article'
+import CreateArticleForm from '../components/CreateArticleForm'
 
 const ArticlesPage = ({
-  articles
+  articles,
+  onCreate,
+  error
 }) => (
   <div>
   {
@@ -26,7 +29,11 @@ const ArticlesPage = ({
         } />
         <Route path='/articles' render={
           () => (
+            <div>
+            { !!error && <p>{error.message}</p>}
+            <CreateArticleForm onCreate={ onCreate }/>
             <ArticleList items = { articles } />
+            </div>
           )
         } />       
       </Switch>
