@@ -1,6 +1,6 @@
-import axios from './init'
+import api from './init'
 
 export function list() {
-    return axios.get('/articles')
+    return api.get('/articles')
         .then(res => res.data)
 }

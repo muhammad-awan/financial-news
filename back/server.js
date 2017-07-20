@@ -1,11 +1,14 @@
 require('dotenv').config()
 const express = require('express')
-const server = express()
-const authMiddleware = require('./middleware/auth')
-const articlesRouter = require('./routes/articles')
 const bodyParser = require('body-parser')
 const cors = require('cors')
+
+const authMiddleware = require('./middleware/auth')
+
+const articlesRouter = require('./routes/articles')
 const authRouter = require('./routes/auth')
+
+const server = express()
 
 server.use(bodyParser.json())
 server.use(authMiddleware.initialize)
