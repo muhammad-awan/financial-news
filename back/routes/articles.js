@@ -3,7 +3,7 @@ const Article = require('../models/article')
 
 const router = express.Router()
 
-router.get('/', (req, res) => {
+router.get('/articles', (req, res) => {
   Article.find()
     .then(articles => {
       res.json(articles)

@@ -10,7 +10,7 @@ import ArticlesPage from './pages/ArticlesPage'
 import SignInPage from './pages/SignInPage'
 import './App.css';
 import * as authAPI from './api/auth'
-
+import * as articlesAPI from './api/articles'
 
 class App extends Component {
   state = {
@@ -77,8 +77,7 @@ class App extends Component {
   }
   
   componentDidMount(){
-    fetch('/articles')
-      .then(res => res.json())
+    articlesAPI.list()
       .then( articles => {
         this.setState({ articles })
       })
