@@ -1,8 +1,7 @@
 import api from './init'
 
 export function list() {
-    return api.get('/articles')
-        .then(res => res.data)
+    return api.get('/articles').then(res => res.data)
 }
 
 export function create({ title, url }) {

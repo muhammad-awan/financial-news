@@ -17,8 +17,10 @@ server.use(cors({
   origin: process.env.CORS.split(',')
 }))
 
-server.use(authRouter)
-server.use(articlesRouter)
+server.use([
+  authRouter,
+  articlesRouter
+])
 
 server.use((error, req, res, next) => {
   const status = error.status || 500

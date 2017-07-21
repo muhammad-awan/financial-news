@@ -5,3 +5,7 @@ const api = axios.create({
 })
 
 export default api
+
+export function setAPIToken(token) {
+    api.defaults.headers['Authorization'] = !!token ? `JWT ${token}` : null
+}
