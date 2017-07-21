@@ -1,23 +1,19 @@
+require('dotenv').config()
 const passport = require('passport')
 const passportJWT = require('passport-jwt')
 const jwt = require('jsonwebtoken')
 const User = require('../models/user')
 
-//config
-const jwtSecret = 'unsafeSecret'
-const jwtAlgorithm = 'HS256'
-const jwtExpiry = '10h'
-
 function signTokenHandler( req, res) {
   const user = req.user
   const token = jwt.sign (
-    { // this is the payload, may use profiles or whatever you need for app
+    { 
       email: user.email
     },
-    jwtSecret,
-    { algorithm: jwtAlgorithm, 
+    process.env.JWT_SECRET,
+    { algorithm: process.env.JWT_ALGO, 
       subject: user._id.toString(),
-      expiresIn: jwtExpiry
+      expiresIn: process.env.JWT_EXPIRY
     }
   )
   res.json({ token })
@@ -30,9 +26,9 @@ passport.use(
 passport.use(
   new passportJWT.Strategy(
     {
-      secretOrKey: jwtSecret,
+      secretOrKey: process.env.JWT_SECRET,
       jwtFromRequest: passportJWT.ExtractJwt.fromAuthHeader(),
-      algorithms: [jwtAlgorithm]
+      algorithms: [process.env.JWT_ALGO]
     },
     (jwtPayload, done) => {
       const UserID = jwtPayload.sub
