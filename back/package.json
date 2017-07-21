@@ -20,7 +20,6 @@
   },
   "scripts": {
     "dev": "nodemon server.js",
-    "seed": "node db/seed.js",
     "start": "node server.js",
     "deploy": "now --dotenv .env --public"
   }

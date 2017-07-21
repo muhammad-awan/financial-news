@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import {
   BrowserRouter as Router,
   Route,
-  Link,
   Switch
 } from 'react-router-dom'
 import PrimaryNav from './components/PrimaryNav'
@@ -29,25 +28,26 @@ class App extends Component {
       })
   }
 
-  handleCreateArticle = ({ title, url }) => {
-    fetch('/articles', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ title, url })
-    })
-      .then(res => res.json())
-      .then(newArticle => {
-        this.setState((prevState) => {
-          return {
-            articles: prevState.articles.concat(newArticle)
-          }
-        })
-      })
-      .catch( error => {
-          this.setState({ error })
-      })
+  // handleCreateArticle = ({ title, url }) => {
+  //   articlesAPI.create('/articles', { title, url })
+  //     .then(newArticle => {
+  //       this.setState(() => {
+  //         return {
+  //           articles: prevState.articles.concat(newArticle)
+  //         }
+  //       })
+  //     })
+  //     .catch( error => {
+  //         this.setState({ error })
+  //     })
+  // }
+
+  handleCreateArticle = (newArticle) => {
+    this.setState(({ articles }) => ({
+      articles: articles.concat(newArticle)
+    }))
+
+    articlesAPI.create(newArticle)
   }
 
   render() {
@@ -63,7 +63,7 @@ class App extends Component {
               )
             }/>
 
-            <Route exact_path='/articles'  render={
+            <Route path='/articles'  render={
               () => (
                 <ArticlesPage articles={ articles } onCreate={ this.handleCreateArticle } error={ error }/>
               )
