@@ -7,13 +7,13 @@ const SignUpPage = ({
   onSignUp
 }) => (
   <div>
-    {
+  {
     !!token ? (
       <Redirect to='/articles'/>
     ) : (
       <SignUpForm onSignUp={ onSignUp } />
     )
-    }
+  }
   </div>
 )
 
