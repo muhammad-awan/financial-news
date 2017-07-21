@@ -78,7 +78,7 @@ class App extends Component {
     return (
       <Router>
         <main>
-          <PrimaryNav signedIn={ !!token } />
+          <PrimaryNav isSignedIn={ !!token } />
           { !!error && <ErrorMessage error={ error } /> }
 
           <Switch>
