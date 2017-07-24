@@ -16,11 +16,7 @@ export default function CreateArticleForm({
     <form onSubmit={ (event) => handleSubmit(event, onCreate) }>
       <Field label='Title' name='title'/>
       <Field label='Url' name='url'/>
-      <button 
-        type='submit' 
-      >
-        Submit Article
-      </button>
+      <button type='submit' >Submit Article</button>
     </form>
   )
 }
