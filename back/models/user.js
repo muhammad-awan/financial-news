@@ -1,7 +1,12 @@
 const passportLocalMongoose = require('passport-local-mongoose')
 const mongoose = require('../db/db')
 
-const userSchema = mongoose.Schema({})
+const userSchema = mongoose.Schema({
+  profileName: {
+    type: String,
+    required: true
+  }
+})
 
 userSchema.plugin(passportLocalMongoose, {
   usernameField: 'email',

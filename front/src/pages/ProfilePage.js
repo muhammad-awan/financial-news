@@ -18,10 +18,9 @@ const ProfilePage = ({
         ) : (
             <div>
                 <dl>
+                    
                     <dt>Email:</dt>
                     <dd>{ userInfo.email }</dd>
-                    <dt>Will sign out in:</dt>
-                    <dd>{ secondsUntilTime(userInfo.exp) } seconds</dd>
                 </dl>
                 <button onClick={ onSignOut }>
                     Sign Out

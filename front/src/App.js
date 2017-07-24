@@ -13,9 +13,11 @@ import ArticlesPage from './pages/ArticlesPage'
 import SignInPage from './pages/SignInPage'
 import SignUpPage from './pages/SignUpPage'
 import ProfilePage from './pages/ProfilePage'
+import ArticlePage from './pages/ArticlePage'
 import { setAPIToken } from './api/init'
 import * as authAPI from './api/auth'
 import * as articlesAPI from './api/articles'
+import * as commentsAPI from './api/comments'
 
 class App extends Component {
   state = {
@@ -71,6 +73,18 @@ class App extends Component {
     articlesAPI.create(newArticle)
   }
 
+  handleCreateComment = (newComment) => {
+    this.setState(({ comments }) => ({
+      comments: comments.concat(newComment)
+    }))
+
+    commentsAPI.create(newComment)
+  }
+
+  parseDate = (create_date) => {
+    this.setState()
+  }
+
   render() {
     const { error, token, articles } = this.state
     const userInfo = !!token ? decodeJWT(token) : null
@@ -101,7 +115,7 @@ class App extends Component {
 
             <Route path='/articles'  render={
               () => (
-                <ArticlesPage articles={ articles } onCreate={ this.handleCreateArticle } error={ error }/>
+                <ArticlesPage articles={ articles } onCreate={ this.handleCreateArticle } error={ error } />
               )
             }/>
 
