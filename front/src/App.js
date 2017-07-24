@@ -15,22 +15,26 @@ import SignUpPage from './pages/SignUpPage'
 import ProfilePage from './pages/ProfilePage'
 import ArticlePage from './pages/ArticlePage'
 import { setAPIToken } from './api/init'
+// import { setAPIToken } from './api/init'
 import * as authAPI from './api/auth'
 import * as articlesAPI from './api/articles'
 import * as commentsAPI from './api/comments'
 
+const tokenKey = 'userToken'
+
 class App extends Component {
   state = {
     articles: null,
-    token: null,
+    token: localStorage.getItem(tokenKey),
     error: null
   }
 
-  loadPromises = {}
+  // loadPromises = {}
 
   setToken = (token) => {
-    setAPIToken(token)
-    this.loadPromises = {}
+    localStorage.setItem(tokenKey, token)
+    // setAPIToken(token)
+    // this.loadPromises = {}
     this.setState({ token })
   }
 
@@ -57,7 +61,7 @@ class App extends Component {
           this.setToken(json.token)
         })
         .catch(error => {
-          this.setError(error)
+          this.setError({ error })
         })
   }
 
