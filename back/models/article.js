@@ -8,20 +8,24 @@ const articleSchema = mongoose.Schema({
   url: {
     type: String
   },
-  create_date: {
+  article_create_date: {
     type: Date,
     default: Date.now
   },
-  postedBy: {
+  articleBy: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
     },
   comments: [{
     text: String,
-    postedBy: {
+    commentBy: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
-    }
+    },
+    comment_create_date: {
+      type: Date,
+      default: Date.now
+    },
   }],
   likes: [{
     type: Number,
