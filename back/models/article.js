@@ -15,25 +15,8 @@ const articleSchema = mongoose.Schema({
   articleBy: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
-    },
-  comments: [{
-    text: String,
-    commentBy: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User'
-    },
-    comment_create_date: {
-      type: Date,
-      default: Date.now
-    },
-  }],
-  likes: [{
-    type: Number,
-    likedBy: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'User'
-    }
-  }]
+  },
+  likes: Number
 })
 
 const Article = mongoose.model('Article', articleSchema)
