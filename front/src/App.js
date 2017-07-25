@@ -138,7 +138,16 @@ class App extends Component {
       .catch( error => {
         this.setState({ error })
     })
-  } 
+
+    commentsAPI.list()
+      .then( comments => {
+        this.setState({ comments })
+      })
+      .catch( error => {
+        this.setState({ error })
+    })
+
+  }
 }
 
 export default App;
