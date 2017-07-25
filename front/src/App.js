@@ -14,7 +14,6 @@ import SignInPage from './pages/SignInPage'
 import SignUpPage from './pages/SignUpPage'
 import ProfilePage from './pages/ProfilePage'
 import ArticlePage from './pages/ArticlePage'
-import { setAPIToken } from './api/init'
 // import { setAPIToken } from './api/init'
 import * as authAPI from './api/auth'
 import * as articlesAPI from './api/articles'
@@ -26,7 +25,8 @@ class App extends Component {
   state = {
     articles: null,
     token: localStorage.getItem(tokenKey),
-    error: null
+    error: null,
+    comments: null
   }
 
   // loadPromises = {}
@@ -73,7 +73,6 @@ class App extends Component {
     this.setState(({ articles }) => ({
       articles: articles.concat(newArticle)
     }))
-
     articlesAPI.create(newArticle)
   }
 
@@ -81,16 +80,11 @@ class App extends Component {
     this.setState(({ comments }) => ({
       comments: comments.concat(newComment)
     }))
-
     commentsAPI.create(newComment)
   }
 
-  parseDate = (create_date) => {
-    this.setState()
-  }
-
   render() {
-    const { error, token, articles } = this.state
+    const { error, token, articles, comments } = this.state
     const userInfo = !!token ? decodeJWT(token) : null
 
     return (
@@ -117,12 +111,18 @@ class App extends Component {
               )
             }/>                 
 
+            <Route path='/articles/:id'  render={
+              () => (
+                <ArticlePage articles={ articles } comments={ comments } onCreate={ this.handleCreateComment } error={ error } />
+              )
+            }/>
+
             <Route path='/articles'  render={
               () => (
                 <ArticlesPage articles={ articles } onCreate={ this.handleCreateArticle } error={ error } />
               )
             }/>
-
+            
             <Route render={ ({location}) => <p>'{location.pathname}' not found</p> }/>
           </Switch>
         </main>

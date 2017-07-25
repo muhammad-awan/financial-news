@@ -13,8 +13,7 @@ export default function Article({
       <Link to={ `/articles/${_id}` }>
         <h2>{ title }</h2>
       </Link>
-      <a href={ `${url}` }>Source: { url }</a>
-      <small>{ article_create_date }</small>
+      <h3>Source: <a href={`${url}`}>{ url }</a></h3>
     </div>
   )
 }

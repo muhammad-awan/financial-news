@@ -1,12 +1,6 @@
 import React from 'react'
 import { Redirect } from 'react-router-dom'
 
-function secondsUntilTime(expiry) {
-    const now = new Date()
-    const then = new Date(expiry * 1000)
-    return then.getTime() - now.getTime()
-}
-
 const ProfilePage = ({
     userInfo,
     onSignOut

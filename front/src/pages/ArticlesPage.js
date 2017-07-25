@@ -1,7 +1,6 @@
 import React from 'react'
-import { Switch, Route } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 import ArticleList from '../components/ArticleList'
-import Article from '../components/Article'
 import CreateArticleForm from '../components/CreateArticleForm'
 
 const ArticlesPage = ({
@@ -12,21 +11,6 @@ const ArticlesPage = ({
   <div>
   {
     !!articles ? (
-      <Switch>
-         <Route path='/articles/:id' render={
-            ({ match }) => {
-                const id = match.params.id
-                const article = articles.find((article) => article._id === id)
-                if (!article) {
-                    return (
-                        <p>Article with id "{ id }" not found</p>
-                    )
-                }
-                return (
-                    <Article { ...article } />
-                )
-            }
-        } />
         <Route path='/articles' render={
           () => (
             <div>
@@ -36,7 +20,7 @@ const ArticlesPage = ({
             </div>
           )
         } />       
-      </Switch>
+
     ) : (
     'Loading articles...'
     )
@@ -45,3 +29,4 @@ const ArticlesPage = ({
 )
 
 export default ArticlesPage
+

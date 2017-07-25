@@ -6,6 +6,7 @@ const cors = require('cors')
 const authMiddleware = require('./middleware/auth')
 
 const articlesRouter = require('./routes/articles')
+const commentsRouter = require('./routes/comments')
 const authRouter = require('./routes/auth')
 
 const server = express()
@@ -19,7 +20,8 @@ server.use(cors({
 
 server.use([
   authRouter,
-  articlesRouter
+  articlesRouter,
+  commentsRouter
 ])
 
 server.use((error, req, res, next) => {
