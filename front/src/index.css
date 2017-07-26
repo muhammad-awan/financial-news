@@ -1,7 +1,8 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #EBD8E0;
+  background-color: #6DB7A8;
+  font-family: Enriqueta;
 }
 
 NavLink {
@@ -24,7 +25,7 @@ nav a {
   color: #322E31;
   font-family: Enriqueta;
   font-size: 2.4rem;
-  background-color: #8E8F78;
+  background-color: #25494C;
 
 }
 
@@ -35,7 +36,7 @@ nav a.active {
 
 button {
   border-radius: 4px;
-  background-color: #f4511e;
+  background-color: #D13F36;
   border: none;
   color: #FFFFFF;
   text-align: center;
