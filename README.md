@@ -72,9 +72,6 @@ Financial-News is a community based financial news sharing site.
 ### Wireframes 
 ----
 ![alt text](https://raw.githubusercontent.com/muhammad-awan/financial-news/master/Wireframes.PNG)
-### Final Design 
-----
-![alt text](https://raw.githubusercontent.com/muhammad-awan/financial-news/master/final.jpg)
 
 ### Local Set-up
 ----
