@@ -1,10 +1,47 @@
 # Financial-News
 ----
 
-* ##### Live site: https://financial-news.now.sh
+* ##### Deployed application: https://financial-news.now.sh
 
-Financial-News is a community based financial news sharing site built using node.js.
+Financial-News is a community based financial news sharing site.
 
+### Tools Used
+----
+* React.js
+* Node.js
+* HTML5
+* CSS3
+* MongoDB
+* Express.js
+##### Dependencies 
+----
+*  axios
+* jwt-decode 
+* react-a11y
+* react-router-dom
+* body-parser
+* cors
+* dotenv
+* express
+* jsonwebtoken
+* mongoose
+* nodemon
+* passport
+* passport-jwt
+* passport-local
+* passport-local-mongoose
+* react-router
+
+##### Hosting & deployment
+----
+* Atlas for MongoDB cluster
+* Zeit cloud hosting for api and client-side app
+##### Project Management
+----
+* ##### https://trello.com/b/MP1JSHZd/financial-news
+----
+##### Wireframing
+* ##### https://www.figma.com/file/dUK2Te2WE3eoayefFCrucIgG/FInancial-News
 ### Target Market
 ----
 * General news  readers - People who might be interested in just the finance section
@@ -31,8 +68,13 @@ Financial-News is a community based financial news sharing site built using node
 
 ### Entity Relationship Diagram
 ----
-![alt text](https://raw.githubusercontent.com/muhammad-awan/financial-news/master/ERD_Commissions_Galore.jpg)
-
+![alt text](https://raw.githubusercontent.com/muhammad-awan/financial-news/master/ERD.png)
+### Wireframes 
+----
+![alt text](https://raw.githubusercontent.com/muhammad-awan/financial-news/master/Wireframes.PNG)
+### Final Design 
+----
+![alt text](https://raw.githubusercontent.com/muhammad-awan/financial-news/master/final.jpg)
 
 ### Local Set-up
 ----
@@ -54,7 +96,7 @@ $ cd ..
 $ cd back
 $ yarn add [package] 
 ```
-Open seperate terminal windows to run localhost servers for each of the 'back' and 'front' folder while you're in those respective directories.
+Open seperate terminal windows to run localhost servers for each of the 'back' and 'front' folders while you're in those respective directories.
 
 ##### Terminal Instance 1:
 ----
@@ -74,8 +116,9 @@ $ yarn dev
 ### Todos
 ----
 
- - Implement chat functionality/ messaging system
- - Implement payments system
+ - Implement better color scheme
+ - Implement system of upvoting
+ - Implement algorithm that factors in created date and up-votes for each article and then lists them on a trending page
 
 ### License
 ----
