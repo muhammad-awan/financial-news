@@ -93,7 +93,7 @@ $ cd ..
 $ cd back
 $ yarn add [package] 
 ```
-Open seperate terminal windows to run localhost servers for each of the 'back' and 'front' folders while you're in those respective directories.
+Open seperate terminal windows to run localhost servers for each of the 'back' and 'front' folders while in those respective directories as follows:
 
 ##### Terminal Instance 1:
 ----
