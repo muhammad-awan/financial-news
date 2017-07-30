@@ -85,7 +85,7 @@ $ cd ..
 $ cd back
 $ yarn
 ```
-To add the packages that were used in this project, refer to the package.json files in both the 'front' and 'back' folders and add them using the following command:
+To add the packages that were used in this project, refer to the package.json files in both the 'front' and 'back' folders and add them using the following commands:
 ```sh
 $ cd front
 $ yarn add [package] 
